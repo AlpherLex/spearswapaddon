@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "spearswapaddon",
+  "version": "${version}",
+  "name": "Spear Swap Addon",
+  "description": "Swaps spear in hotbar slot when swung with randomized delay",
+  "authors": [
+    "Byte"
+  ],
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.byte.meteor.addon.SpearSwapAddon"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": ">=1.21.1",
+    "meteorclient": ">=1.21.11"
+  },
+  "custom": {
+    "menu": {
+      "category": "Combat",
+      "icon": "minecraft:trident"
+    }
+  }
+}

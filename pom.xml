@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.byte.meteor</groupId>
+    <artifactId>SpearSwapAddon</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+
+    <name>SpearSwapAddon</name>
+    <description>Meteor Client addon for spear attribute swap on swing (1.21.11)</description>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <meteor.version>1.21.11</meteor.version>
+        <fabric.loader.version>0.14.21</fabric.loader.version>
+        <minecraft.version>1.21.1</minecraft.version>
+        <yarn.mappings>1.21.1+build.1</yarn.mappings>
+    </properties>
+
+    <repositories>
+        <!-- FABRIC REPO FIRST (fixes dependency issues) -->
+        <repository>
+            <id>fabric</id>
+            <url>https://maven.fabricmc.net/</url>
+        </repository>
+        <!-- METEOR REPO SECOND -->
+        <repository>
+            <id>meteor-repo</id>
+            <url>https://repo.meteorclient.com/releases</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- Meteor Client API -->
+        <dependency>
+            <groupId>meteordevelopment</groupId>
+            <artifactId>meteor-client</artifactId>
+            <version>${meteor.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Fabric API -->
+        <dependency>
+            <groupId>net.fabricmc</groupId>
+            <artifactId>fabric-api</artifactId>
+            <version>${fabric.loader.version}+${minecraft.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Mixin -->
+        <dependency>
+            <groupId>org.spongepowered</groupId>
+            <artifactId>mixin</artifactId>
+            <version>0.8.5</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>fabric.mod.json</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <plugins>
+            <!-- Compiler plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <release>17</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
